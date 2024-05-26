@@ -1,43 +1,47 @@
+// -----------------------------------------------------------------------
+// <copyright file="ItemSpawnPointSerializable.cs" company="MapEditorReborn">
+// Copyright (c) MapEditorReborn. All rights reserved.
+// Licensed under the CC BY-SA 3.0 license.
+// </copyright>
+// Modifications made by LyreLilith
+// Licensed under the CC BY-SA 3.0 license
+// -----------------------------------------------------------------------
 
-using System;
-using CTmapAPI.Serializables;
 
 
-
+ namespace MapAPIUTilitys.MapAPIUtilitys.Serializables;
     [Serializable]
     public class ItemSpawnSerialzable : PrefabSerialzable
     {
         /// <summary>
         /// Gets or sets the name of the item that will be spawned.
-        /// <para><see cref="Exiled.CustomItems.API.Features.CustomItem"/> is supported.</para>
         /// </summary>
         public string Item { get; set; } = "KeycardJanitor";
 
         /// <summary>
         /// Gets or sets the attachments of the item.
-        /// <para>This works for <see cref="Exiled.API.Features.Items.Firearm"/> only.</para>
         /// </summary>
         public string AttachmentsCode { get; set; } = "-1";
 
         /// <summary>
-        /// Gets or sets the spawn chance of the <see cref="Exiled.API.Features.Items.Item"/>.
+        /// Gets or sets the spawn chance of the item
         /// </summary>
         public int SpawnChance { get; set; } = 100;
 
         /// <summary>
-        /// Gets or sets the number of the spawned items, if the <see cref="SpawnChance"/> succeeds.
+        /// Gets or sets the number of the spawned items, if the chance succeds
         /// </summary>
         public uint NumberOfItems { get; set; } = 1;
 
         public int NumberOfUses { get; set; } = 1;
 
         /// <summary>
-        /// Gets or sets a value indicating whether the spawned <see cref="Exiled.API.Features.Items.Item"/> should be affected by gravity.
+        /// Gets or sets a value indicating whether the spawned item  should be affected by gravity.
         /// </summary>
         public bool UseGravity { get; set; } = true;
 
         /// <summary>
-        /// Gets or sets a value indicating whether the spawned <see cref="Exiled.API.Features.Items.Item"/> can be picked up.
+        /// Gets or sets a value indicating whether the spawned item can be picked up.
         /// </summary>
         public bool CanBePickedUp { get; set; } = true;
         

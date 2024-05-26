@@ -1,11 +1,12 @@
-﻿using CTmapAPI.Enums;
-using CTmapAPI.Serializables;
-using Exiled.API.Enums;
-using Interactables.Interobjects.DoorUtils;
-using MapAPIUTilitys.Enums;
-using UnityEngine;
-
-
+﻿// -----------------------------------------------------------------------
+// <copyright file="RoomConfigMaker.cs" company="LyreLilith">
+// © 2024 LyreLilith. All rights reserved.
+// Licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License.
+// To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/legalcode
+// -----------------------------------------------------------------------
+using MapAPIUTilitys;
+using MapAPIUTilitys.MapAPIUtilitys.Enums;
+using MapAPIUTilitys.MapAPIUtilitys.Serializables;
 
 
 public class RoomConfigMaker
@@ -16,7 +17,7 @@ public class RoomConfigMaker
     {
         var room = new RoomSerialzable();
 
-        room.TypeOfRoom = ReadEnum<Exiled.API.Enums.RoomType>("Please enter room type");
+        room.TypeOfRoom = ReadEnum<RoomType>("Please enter room type");
         
         // Prompt for Chance
         room.Chance = PromptFloat("Enter Vaule .001 - 1",.001f,1f);
@@ -89,7 +90,7 @@ public class RoomConfigMaker
                 LockerType = ReadEnum<LockerTypes>("locker type"),
                 Chambers = PromptDictinary<int, List<ItemSpawnSerialzable>>("chambers", PromptItemSpawnerList),
                 KeycardPermissions =
-                    ReadEnum<Interactables.Interobjects.DoorUtils.KeycardPermissions>("keycard permissions")
+                    ReadEnum<KeycardPermissions>("keycard permissions")
             };
             list.Add(locker);
         }
@@ -191,7 +192,7 @@ public class RoomConfigMaker
             var effect = new EffectSubContainerSerializable()
             {
 
-                Effect = ReadEnum<Exiled.API.Enums.EffectType>("EffectType"),
+                Effect = ReadEnum<EffectType>("EffectType"),
                 Intensity = PromptByte("intesity"),
                 Duration = PromptFloat("duration",0,null)
 
@@ -288,12 +289,12 @@ private static byte PromptByte(string prompt)
         return Console.ReadLine();
     }
 
-    private static Vector3 PromptVector3(string message)
+    private static System.Numerics.Vector3 PromptVector3(string message)
     {
         float x = PromptFloat(message + " (x): ",null,null);
         float y = PromptFloat(message + " (y): ",null,null);
         float z = PromptFloat(message + " (z): ",null,null);
-        return new Vector3(x, y, z);
+        return new System.Numerics.Vector3(x, y, z);
     }
 
     private static bool PromptBool(string message)
@@ -307,7 +308,7 @@ private static byte PromptByte(string prompt)
         return result;
     }
 
-    private static Color PromptColor(string message)
+    private static MapAPIUTilitys.Color PromptColor(string message)
     {
         float r = PromptFloat(message + " (r): ",0,null);
         float g = PromptFloat(message + " (g): ",0,null);
@@ -316,16 +317,16 @@ private static byte PromptByte(string prompt)
         return new Color(r, g, b, a);
     }
 
-    private static List<TeleporterContainer> PromptTeleporterList()
+    private static List<TeleporterSerialzable> PromptTeleporterList()
     {
-        List<TeleporterContainer> list = new List<TeleporterContainer>();
+        List<TeleporterSerialzable> list = new List<TeleporterSerialzable>();
         Console.WriteLine("Enter teleporter data. Type 'done' to finish.");
         while (true)
         {
             string input = PromptString("Add a teleporter? (yes/done): ");
             if (input.ToLower() == "done") break;
 
-            TeleporterContainer teleporter = new TeleporterContainer
+            TeleporterSerialzable teleporter = new TeleporterSerialzable()
             {
                 Position = PromptVector3("Enter teleporter position: "),
                 Rotation = PromptVector3("Enter teleporter rotation: "),
@@ -381,19 +382,19 @@ private static byte PromptByte(string prompt)
         return damageType;
     }
     
-    public static Interactables.Interobjects.DoorUtils.KeycardPermissions PromptUserForKeycardPermissions()
+    public static KeycardPermissions PromptUserForKeycardPermissions()
     {
         Console.WriteLine("Enter keycard permissions separated by commas (e.g., ContainmentLevelOne, ArmoryLevelOne, ScpOverride):");
         string input = Console.ReadLine();
 
         // Split the input into individual permissions
         var permissionsList = input.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-        Interactables.Interobjects.DoorUtils.KeycardPermissions permissions = Interactables.Interobjects.DoorUtils.KeycardPermissions.None;
+       KeycardPermissions permissions = KeycardPermissions.None;
 
-        // Convert each string to an enum value and combine them
+  
         foreach (string permission in permissionsList)
         {
-            if (Enum.TryParse(permission.Trim(), true, out Interactables.Interobjects.DoorUtils.KeycardPermissions result))
+            if (Enum.TryParse(permission.Trim(), true, out KeycardPermissions result))
             {
                 permissions |= result;
             }

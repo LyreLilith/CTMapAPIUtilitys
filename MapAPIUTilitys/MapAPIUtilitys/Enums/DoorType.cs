@@ -1,22 +1,22 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="LockerType.cs" company="MapEditorReborn">
-// Copyright (c) MapEditorReborn. All rights reserved.
+// <copyright file="RoomType.cs" company="Exiled Team">
+// Copyright (c) Exiled Team. All rights reserved.
 // Licensed under the CC BY-SA 3.0 license.
 // </copyright>
 // Modifications made by LyreLilith
 // Licensed under the CC BY-SA 3.0 license
 // -----------------------------------------------------------------------
-
 namespace MapAPIUTilitys.MapAPIUtilitys.Enums;
 
-
-    public enum LockerTypes
+    public enum DoorType
     {
-        Pedestal = 0,
-        LargeGun = 1,
-        RifleRack = 2,
-        Misc = 3,
-        Medkit = 4,
-        Adrenaline = 5,
-    }
 
+        EntranceDoor,
+
+        
+        HeavyContainmentDoor,
+        
+        LczCafe,
+
+        
+}

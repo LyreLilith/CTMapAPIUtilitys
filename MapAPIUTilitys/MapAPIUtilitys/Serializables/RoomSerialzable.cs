@@ -1,18 +1,23 @@
+// -----------------------------------------------------------------------
+// <copyright file="RoomSerialzable.cs" company="LyreLilith">
+// © 2024 LyreLilith. All rights reserved.
+// Licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License.
+// To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/legalcode
+// -----------------------------------------------------------------------
+using System.Numerics;
+using MapAPIUTilitys.MapAPIUtilitys.Enums;
 
-using System;
-using System.Collections.Generic;
-using Exiled.API.Enums;
-using UnityEngine;
 
-namespace CTmapAPI.Serializables
-{
+
+namespace MapAPIUTilitys.MapAPIUtilitys.Serializables;
+
     [Serializable]
     public class RoomSerialzable
     {
         public RoomType TypeOfRoom { get; set; }
         public float Chance { get; set; }
         public string SchematicName { get; set; }
-        public List<TeleporterContainer> TeleporterList { get; set; }
+        public List<TeleporterSerialzable> TeleporterList { get; set; }
         public List<DoorSerializable> DoorList { get; set; }
         public List<HazardSerialzable> HazardList { get; set; }
         public Vector3 PositionOverride { get; set; }
@@ -27,7 +32,7 @@ namespace CTmapAPI.Serializables
 
 
     }
-}
+
 
     
 

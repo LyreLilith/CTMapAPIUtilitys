@@ -1,6 +1,12 @@
-﻿using CTmapAPI.Serializables;
-using Exiled.API.Enums;
-using MapAPIUTilitys;
+﻿// -----------------------------------------------------------------------
+// <copyright file="Program.cs" company="LyreLilith">
+// © 2024 LyreLilith. All rights reserved.
+// Licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License.
+// To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/legalcode
+// -----------------------------------------------------------------------
+
+using MapAPIUTilitys.MapAPIUtilitys.Enums;
+using MapAPIUTilitys.MapAPIUtilitys.Serializables;
 using Newtonsoft.Json;
 
 

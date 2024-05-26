@@ -9,26 +9,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="EXILED" Version="8.9.2" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.16" />
     </ItemGroup>
 
     <ItemGroup>
-        <Reference Include="Assembly-CSharp">
-        <HintPath>$(MANAGED)\Assembly.dll</HintPath>
-        <Private>true</Private>
-        </Reference>
         <Reference Include="Assembly-CSharp-firstpass">
             <HintPath>$(MANAGED)\Assembly-CSharp-firstpass.dll</HintPath>
-            <Private>true</Private>
-        </Reference>
-        <Reference Include="UnityEngine">
-            <HintPath>$(MANAGED)\UnityEngine.dll</HintPath>
-            <Private>true</Private>
-        </Reference>
-        <Reference Include="UnityEngine.CoreModule">
-            <HintPath>$(MANAGED)\UnityEngine.CoreModule.dll</HintPath>
             <Private>true</Private>
         </Reference>
     </ItemGroup>

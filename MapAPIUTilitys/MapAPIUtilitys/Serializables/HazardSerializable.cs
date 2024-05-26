@@ -1,8 +1,13 @@
+// -----------------------------------------------------------------------
+// <copyright file="MyClass.cs" company="LyreLilith">
+// © 2024 LyreLilith. All rights reserved.
+// Licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License.
+// To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/legalcode
+// -----------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using CTmapAPI.Serializables;
-using UnityEngine;
+using System.Numerics;
+
+namespace MapAPIUTilitys.MapAPIUtilitys.Serializables;
 
 /// <summary>
 /// Container for the Enviermental Hazards

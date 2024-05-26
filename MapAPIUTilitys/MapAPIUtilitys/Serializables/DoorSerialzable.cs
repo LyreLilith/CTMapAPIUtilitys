@@ -1,12 +1,17 @@
+// -----------------------------------------------------------------------
+// <copyright file="DoorSerializablee.cs" company="MapEditorReborn">
+// Copyright (c) MapEditorReborn. All rights reserved.
+// Licensed under the CC BY-SA 3.0 license.
+// </copyright>
+// Modifications made by LyreLilith
+// Licensed under the CC BY-SA 3.0 license
+// -----------------------------------------------------------------------
 
-using System;
-using CTmapAPI;
-using CTmapAPI.Serializables;
-using Exiled.API.Enums;
-using Interactables.Interobjects.DoorUtils;
-using Newtonsoft.Json;
-using UnityEngine;
-using KeycardPermissions = Exiled.API.Enums.KeycardPermissions;
+
+using System.Numerics;
+using MapAPIUTilitys.MapAPIUtilitys.Enums;
+
+namespace MapAPIUTilitys.MapAPIUtilitys.Serializables;
 
 
 
@@ -19,10 +24,9 @@ public class DoorSerializable
     public DoorType Door { get; set; } = DoorType.LczCafe;
     
     
-    [JsonConverter(typeof(KeycardPermissionsConverter))]
-    public Interactables.Interobjects.DoorUtils.KeycardPermissions Permissions { get; set; } =
-        Interactables.Interobjects.DoorUtils.KeycardPermissions.None;
-    [JsonConverter(typeof(DoorDamageTypeConverter))]
+    
+    public KeycardPermissions Permissions { get; set; } =
+       KeycardPermissions.None;
     public DoorDamageType DoorDamage { get; set; } = DoorDamageType.Weapon;
     public float Health { get; set; } = 200;
     public string PairTag { get; set; } = "";

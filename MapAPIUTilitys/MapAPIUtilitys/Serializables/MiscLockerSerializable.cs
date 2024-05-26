@@ -1,8 +1,16 @@
-using CTmapAPI.Serializables;
-using Interactables.Interobjects.DoorUtils;
-using MapAPIUTilitys.Enums;
+// -----------------------------------------------------------------------
+// <copyright file="LockerSerializable.cs" company="MapEditorReborn">
+// Copyright (c) MapEditorReborn. All rights reserved.
+// Licensed under the CC BY-SA 3.0 license.
+// </copyright>
+// Modifications made by LyreLilith
+// Licensed under the CC BY-SA 3.0 license
+// -----------------------------------------------------------------------
 
 
+using MapAPIUTilitys.MapAPIUtilitys.Enums;
+
+namespace MapAPIUTilitys.MapAPIUtilitys.Serializables;
 public class MiscLockerSerializble : PrefabSerialzable
 {
     public LockerTypes LockerType { get; set; }
