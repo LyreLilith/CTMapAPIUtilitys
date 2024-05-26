@@ -20,7 +20,7 @@ public class RoomConfigMaker
         room.TypeOfRoom = ReadEnum<RoomType>("Please enter room type");
         
         // Prompt for Chance
-        room.Chance = PromptFloat("Enter Vaule .001 - 1",.001f,1f);
+        room.Chance = PromptFloat("Enter Vaule .001 - 1: ",.001f,1f);
 
         Console.WriteLine("Enter the schematic name:");
         room.SchematicName = Console.ReadLine();
@@ -140,8 +140,8 @@ public class RoomConfigMaker
     
     private static List<HazardSerialzable> PromptHazardList(){
         List<HazardSerialzable> list = new  List<HazardSerialzable>();
-
-        while (true)
+        bool loop = true;
+        while (loop)
         {
             string input = PromptString($"Add a Hazard? (yes/done/?): ");
             switch (input)
@@ -158,6 +158,8 @@ public class RoomConfigMaker
                         list.Add(hazard);
                         break;
                 case "done":
+                    loop = false;
+                    return list;
                     break;
                 case "?":
                     Console.Clear();
@@ -167,6 +169,8 @@ public class RoomConfigMaker
 
             }
         }
+
+        return list;
     }
 
 
